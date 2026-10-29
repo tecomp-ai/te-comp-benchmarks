@@ -8,8 +8,8 @@
 # Build context = benchmarks/ (self-contained).
 #
 # Usage:
-#   ./docker-build.sh            # build image
-#   ./docker-run.sh              # run evaluation
+#   ./docker-build.sh                   # build image
+#   ./docker-run.sh --output ./results  # run evaluation
 # =============================================================================
 
 ARG TARGETPLATFORM=linux/amd64
