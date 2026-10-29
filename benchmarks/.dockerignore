@@ -1,0 +1,3 @@
+# Exclude the tinystories_v2 S32DS firmware project (large, not needed for benchmarks).
+# The Docker image only needs benchmarks.
+tinystories_v2/

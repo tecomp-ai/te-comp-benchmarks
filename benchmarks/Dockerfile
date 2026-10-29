@@ -1,11 +1,11 @@
 # =============================================================================
 # Dockerfile — te-comp memory & accuracy benchmarks artifact
 #
-# Self-contained environment to reproduce Paper Table 1, Table 2,
+# Self-contained environment to reproduce Paper Table 2, Table 3,
 # and numerical accuracy verification.
 # Uses the pre-built te-comp binary shipped in tools/.
 #
-# Build context = memory_accuracy_benchmarks/ (self-contained).
+# Build context = benchmarks/ (self-contained).
 #
 # Usage:
 #   ./docker-build.sh            # build image
@@ -40,7 +40,7 @@ RUN pip3 install --no-cache-dir \
         "numpy<2" tflite==2.10.0 safetensors flatbuffers tflite-runtime
 
 # --- Copy self-contained benchmark directory into /bench/ --------------------
-# Build context is memory_accuracy_benchmarks/ (set by docker-build.sh)
+# Build context is benchmarks/ (set by docker-build.sh)
 COPY . /bench/
 
 # Make the binary executable
