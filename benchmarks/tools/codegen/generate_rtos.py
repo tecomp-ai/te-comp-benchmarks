@@ -91,7 +91,7 @@ def build_template_vars(manifest: dict) -> dict:
         "estimated_us":       m.get("performance", {}).get("estimated_us", 0),
 
         # Layers
-        "num_layers":         len(m.get("layers", [])),
+        "num_layers":         m.get("num_layers", 0) or len(m.get("layers", [])),
 
         # Files
         "engine_source":      m["files"]["engine_source"],

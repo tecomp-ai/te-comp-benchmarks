@@ -904,9 +904,11 @@ class TOSAEmitter:
             else:
                 self._emit(f"// UNSUPPORTED layer type: {layer.type}")
 
-        # Fix up return type in header
+        # Fix up return type and attach model metadata as function attributes
         out_ty = tensor_type_str(self.current_shape, self.current_type)
-        header[-1] = f"func.func @main(%arg0: {inp_ty}) -> {out_ty} {{"
+        n = len(self.layers)
+        header[-1] = (f"func.func @main(%arg0: {inp_ty}) -> {out_ty}"
+                      f" attributes {{te.num_layers = {n} : i64}} {{")
 
         # Return
         self._emit(f"return {self.current_ssa} : {out_ty}")
@@ -1568,9 +1570,10 @@ class GPTNeoTOSAEmitter:
             logits, logits_shape = self._linear(
                 x, x_shape, lm_head_key, None, "lm_head")
 
-        # Fix output type
+        # Fix output type and attach model metadata as function attributes
         out_ty = self._ty(logits_shape)
-        header[3] = f"func.func @main(%tokens: {inp_ty}) -> {out_ty} {{"
+        header[3] = (f"func.func @main(%tokens: {inp_ty}) -> {out_ty}"
+                     f" attributes {{te.num_layers = {self.n_layers} : i64}} {{")
 
         self._emit(f"return {logits} : {out_ty}")
 
