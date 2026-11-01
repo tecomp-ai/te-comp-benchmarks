@@ -1,0 +1,49 @@
+{
+  "model_name": "tinystories_v2_pruned",
+  "model_description": "tinystories_v2_pruned",
+
+  "input": {
+    "shape": [1, 1],
+    "dtype": "int64",
+    "size_bytes": 8,
+    "zero_point": -128,
+    "scale": 0.00390625
+  },
+
+  "output": {
+    "shape": [1, 1, 14632],
+    "dtype": "float32",
+    "size_bytes": 58528,
+    "zero_point": -128,
+    "scale": 0.00390625
+  },
+
+  "memory": {
+    "arena_size_bytes": 59040,
+    "weights_flash_bytes": 3169408,
+    "scratch_size_bytes": 576,
+    "peak_sram_bytes": 59616
+  },
+
+  "performance": {
+    "total_macs": 3445760,
+    "estimated_cycles": 0,
+    "target_clock_mhz": 170,
+    "estimated_us": 0
+  },
+
+  "num_layers": 8,
+  "layers": [],
+
+  "files": {
+    "engine_source": "tinystories_v2_pruned_engine.c",
+    "engine_header": "tinystories_v2_pruned_engine.h",
+    "weights_header": "tinystories_v2_pruned_data.h"
+  },
+
+  "compiler": {
+    "version": "0.1.0",
+    "llvm_version": "24.0",
+    "target": "arm"
+  }
+}
