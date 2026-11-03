@@ -30,17 +30,6 @@ cd code_generation
 ./docker-run.sh --output ./results
 ```
 
-# Drop Generated Code to S32DS Project
-
-```bash
-# Go to the generated C files in results folder
-cd results
-
-# Copy the files into src folder in the S32DS project
-cp *.h ../../tinystories_v2/src
-cp *.c ../../tinystories_v2/src
-```
-
 # Import the Firmware Project and Drop Generated C Files 
 
 To import the project into S32DS:
